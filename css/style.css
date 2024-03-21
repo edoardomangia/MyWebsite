@@ -1,0 +1,25 @@
+body {
+  background-color: #000000;
+}
+
+.pulsating-background {
+  position: fixed; /* Ensures the background covers the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  /* Fills the entire viewport */
+  background-color: #ff0000; /* Your desired base color */
+  animation: pulsate 1.5s ease-in-out infinite; /* Animation properties */
+}
+  
+@keyframes pulsate {
+  0% {
+    opacity: 1; /* Fully opaque at the beginning */
+  }
+  50% {
+    opacity: 0; /* Fades to a slightly transparent state in the middle */
+  }
+  100% {
+    opacity: 1; /* Back to fully opaque at the end, completing the pulse */
+  }
+}
