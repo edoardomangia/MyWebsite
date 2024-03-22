@@ -2,7 +2,7 @@ const pdfPath = "assets/CV_Edoardo_Mangia.pdf"; // Replace with the path to your
 
 const pdfDiv = document.getElementById("pdf-viewer");
 
-PDFJSLib.getDocument(pdfPath).promise.then((pdf) => {
+PDFJS.getDocument(pdfPath).promise.then((pdf) => {
   // Document loaded successfully
   const firstPage = pdf.getPage(1); // You can adjust the page number here
   firstPage.then((page) => {
