@@ -1,4 +1,4 @@
-const pdfPath = "D:\Projects\MyWebsite\assets\CV_Edoardo_Mangia.pdf"; // Replace with the path to your PDF file
+const pdfPath = "assets/CV_Edoardo_Mangia.pdf"; // Replace with the path to your PDF file
 
 const pdfDiv = document.getElementById("pdf-viewer");
 
