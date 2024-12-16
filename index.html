@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Edoardo Mangia</title>
+    <title>Edoardo Mangia</title>
+  	
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+	 
     <style>
+   
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
         header {
-            background-color: #35424a;
-            color: #ffffff;
+            background-color: #f5f5f5;
+            color: #333333;
             padding: 20px 0;
             text-align: center;
         }
@@ -32,60 +36,101 @@
             object-fit: cover;
         }
         h1, h2 {
-            color: #35424a;
+            color: #333333;
         }
         p {
             line-height: 1.6;
         }
-        .contact-info a {
-            color: #35424a;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
         footer {
-            background-color: #35424a;
-            color: #ffffff;
+            background-color: #f5f5f5;
+            color: #333333;
             text-align: center;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+        } 
+        .links a {
+            display: block;
+            color: #0066cc;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
         }
-    </style>
+        .links a:hover {
+            text-decoration: underline;
+        }
+   	</style>
 </head>
 <body>
 
     <header>
-        <h1>Your Name</h1>
-        <p>Welcome to my personal webpage!</p>
+        <p>Welcome to my webpage :)</p>
     </header>
-
+		
     <div class="container">
-        <img src="your-photo.jpg" alt="Your Name" class="profile-pic">
         
+        <!--
+		<img src="assets/images/your-photo.jpg" alt="Edoardo Mangia" class="profile-pic">
+        -->
+
         <section id="about">
-            <h2>About Me</h2>
             <p>
-                Hello! I'm Edoardo Mangia, a [your profession or passion]. I have a background in [your background] and specialize in [your specialties].
-                In my free time, I enjoy [your hobbies or interests]. I'm passionate about [something you're passionate about] and love to [something you love to do].
-            </p>
+            Ciao! I'm Edoardo Mangia.<br>
+            This site is still a work in progress and I really appreciate you took the time to be here. Below are some things I think you might find interesting. 
+           </p>
+        </section>
+		
+		<section id="resume">
+			<iframe 
+				src="assets/documents/Resume_EdoardoMangia.pdf" 
+				style="width: 100%; 
+                       height: 75vh; 
+                       border: none;
+                       border-radius: 12px;"				
+				type="application/pdf" 
+				frameborder="0"
+				allowfullscreen
+				>
+			</iframe>
+		</section>
+        
+		<iframe 
+			style="border-radius: 12px;" 
+			src="https://open.spotify.com/embed/playlist/5WiB5NmGjjeEvEWZAKS0kU?utm_source=generator&theme=0" 
+			width="100%" 
+			height="352" 
+			frameBorder="0" 
+			allowfullscreen="" 
+			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+			loading="lazy">
+		</iframe>
+        
+        <section id="letterboxd">
+            <div id="letterboxd-embed-wrapper-tc">Loading...</div>
+                <script>
+                    fetch('https://lb-embed-content.bokonon.dev?username=edoardomangia')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
+                    });
+                </script>		
         </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p class="contact-info">
-                You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on 
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>.
-            </p>
+        <section id="links" class="links">
+            <h2>Find me online</h2>
+            <a href="https://linkedin.com/in/edoardomangia" target="_blank">LinkedIn</a>
+            <a href="https://github.com/edoardomangia" target="_blank">GitHub</a>
+            <a href="https://open.spotify.com/user/edoardo.mangia" target="_blank">Spotify</a>
+            <a href="https://letterboxd.com/edoardomangia/" target="_blank">Letterboxd</a>
         </section>
-    </div>
-
+    <!-- 
     <footer>
-        &copy; 2024 Your Name. All rights reserved.
+		:)
     </footer>
-
+    -->
 </body>
 </html>
 
