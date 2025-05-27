@@ -35,7 +35,6 @@
             height: 150px;
             object-fit: cover;
         }
-		
 		.image-grid {
 	  	    display: grid;
 		  /* auto‐fit as many 150px columns as will fit */
@@ -48,22 +47,7 @@
 		    max-width: 100%;         /* make them responsive */
 	        height: auto;
 		}
-		
-		.image-flex {
-  display: flex;
-  flex-wrap: wrap;               /* allow wrapping to new lines */
-  justify-content: center;       /* center all rows */
-  gap: 16px;                     /* horizontal & vertical gap */
-  padding: 20px 0;
-}
-.image-flex img {
-  max-width: 150px;              /* fixed size / or use % for fluid */
-  height: auto;
-  border-radius: 8px;
-}
-
-
-        h1, h2 {
+	    h1, h2 {
             color: #333333;
         }
         p {
@@ -90,7 +74,14 @@
         .links a:hover {
             text-decoration: underline;
         }
-   	</style>
+   	.section-title {
+		  text-align: center;
+		  font-family: 'Montserrat', sans-serif;
+		  font-size: 1.5rem;
+		  margin-bottom: 16px;
+		  color: #333;
+		}	
+	</style>
 </head>
 <body>
 
@@ -98,18 +89,20 @@
         <p>Welcome to my webpage :)</p>
     </header>
     
-	<section class="image-flex">
-		<img src="/assets/pictures/20250429.png" alt="A description of the photo">
-		<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
-		<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
-		<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
-		<img src="/assets/pictures/20250429.png" alt="A description of the photo">
-		<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+	<section class="image-grid">
+		<h2 class="section-title">April 29, 2025</h2>
+			<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+			<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
+			<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
+			<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
+			<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+			<img src="/assets/pictures/20250429.png" alt="A description of the photo">
 	</section>	
 
-	<section class="image-flex">
-		<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
-		<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+	<section class="image-grid">
+		<h2 class="section-title">April 29, 2025</h2>
+			<img src="/assets/pictures/20250423.jpg" alt="A description of the photo">
+			<img src="/assets/pictures/20250429.png" alt="A description of the photo">
 	</section>	
 
     <footer>
