@@ -152,12 +152,18 @@
             <a href="https://letterboxd.com/edoardomangia/" target="_blank">Letterboxd</a>
         </section>
  
+    <div class="container">
+        <!-- <<< insert your marquee here: >>> -->
+    <div class="marquee-container">
+      <div class="marquee"><span><!-- JS will inject lyrics here --></span></div>
+    </div>
+        
     <script>
         // 1) Grab your marquee span
         const marqueeSpan = document.querySelector('.marquee span');
 
         // 2) Fetch the raw text file
-        fetch('/lyrics.txt')
+        fetch('assets/lyrics.txt')
         .then(r => r.text())
         .then(text => {
           // 3) Split into blocks by blank line
