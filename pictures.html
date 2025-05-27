@@ -21,6 +21,23 @@
             padding: 20px 0;
             text-align: center;
         }
+	    h1, h2 {
+            color: #333333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #f5f5f5;
+            color: #333333;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+        } 
         .container {
             padding: 20px;
             max-width: 800px;
@@ -47,23 +64,6 @@
 		    max-width: 100%;         /* make them responsive */
 	        height: auto;
 		}
-	    h1, h2 {
-            color: #333333;
-        }
-        p {
-            line-height: 1.6;
-        }
-        footer {
-            background-color: #f5f5f5;
-            color: #333333;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            box-sizing: border-box;
-        } 
         .links a {
             display: block;
             color: #0066cc;
@@ -74,16 +74,29 @@
         .links a:hover {
             text-decoration: underline;
         }
-	.image-section {
+		.image-section {
 		  margin-bottom: 40px;        /* space between date‐groups */
 		}
-   	.section-title {
+   		.section-title {
 		  text-align: center;
 		  font-family: 'Montserrat', sans-serif;
 		  font-size: 1.5rem;
 		  margin-bottom: 16px;
 		  color: #333;
 		}	
+		.image-grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		  gap: 16px;
+		  justify-items: center;
+		  padding: 20px 0;
+		}
+		.image-grid img {
+		  width: 100%;
+		  height: auto;
+		  object-fit: cover;
+		}
+
 	</style>
 </head>
 <body>
@@ -92,16 +105,25 @@
         <p>Welcome to my webpage :)</p>
     </header>
     
-	<section class="image-grid">
+	<section class="image-section">
 		<h2 class="section-title">April 29, 2025</h2>
 			<div class="image-grid">	
 				<img src="/assets/pictures/20250429.png" alt="A description of the photo">
 			</div>	
 	</section>	
-
+	<section class="image-section">
+		<h2 class="section-title">April 29, 2025</h2>
+			<div class="image-grid">	
+				<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+			</div>	
+	</section>	
+	
+	<!--
     <footer>
 		:)
     </footer>
+	-->
+
 </body>
 </html>
 
