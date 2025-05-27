@@ -69,24 +69,27 @@
               overflow: hidden;
               background: #222;     /* banner background */
             }
+        .marquee {
+          display: flex;
+          /* make it at least twice as wide as the container so both copies sit side by side */
+          min-width: 200%;
+          animation: scroll 15s linear infinite;
+        }
 
-            .marquee {
-              display: inline-block;
-              white-space: nowrap;
-              /* duplicate the text for seamless loop */
-              animation: scroll 15s linear infinite;
-            }
+        .lyric {
+          /* each one takes 50% of the marquee’s width */
+          width: 50%;
+          white-space: nowrap;
+          padding-left: 100%;       /* start each off-screen to the right */
+          box-sizing: content-box;
+        }
 
-            .marquee span {
-              padding-left: 100%;   /* start off-screen */
-              display: inline-block;
-            }
+        /* slide left by 50% (one lyric’s width) */
+        @keyframes scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
 
-            /* keyframes: move from 0% (right) to -100% (left) */
-            @keyframes scroll {
-              0%   { transform: translateX(0); }
-              100% { transform: translateX(-100%); }
-            }
    	</style>
 </head>
 <body>
@@ -152,45 +155,50 @@
             <a href="https://letterboxd.com/edoardomangia/" target="_blank">Letterboxd</a>
         </section>
  
-    <div class="container">
-        <!-- <<< insert your marquee here: >>> -->
-    <div class="marquee-container">
-      <div class="marquee"><span><!-- JS will inject lyrics here --></span></div>
+
+ <div class="marquee-container">
+    <div class="marquee">
+      <span class="lyric"></span>
+      <span class="lyric"></span>
     </div>
-        
-    <script>
-        // 1) Grab your marquee span
-        const marqueeSpan = document.querySelector('.marquee span');
+  </div>
 
-        // 2) Fetch the raw text file
-        fetch('assets/lyrics.txt')
-        .then(r => r.text())
-        .then(text => {
-          // 3) Split into blocks by blank line
-          const blocks = text
-            .trim()
-            .split(/\n\s*\n/)
-            .map(b => b.replace(/\n/g, ' ')); // join multi-line into one line
+  <script>
+    // 1) Grab both lyric spans
+    const lyricEls = document.querySelectorAll('.lyric');
 
-          let idx = 0;
+    // 2) Fetch the raw text file
+    fetch('assets/lyrics.txt')
+      .then(r => r.text())
+      .then(text => {
+        const blocks = text
+          .trim()
+          .split(/\n\s*\n/)
+          .map(b => b.replace(/\n/g, ' ')); // join multi-line into one line
 
-          // 4) Function to update and restart the animation
-          function showNext() {
-            marqueeSpan.textContent = blocks[idx];
-            // force reflow so the CSS animation restarts:
-            marqueeSpan.parentElement.style.animation = 'none';
-            // trigger reflow
-            void marqueeSpan.parentElement.offsetWidth;
-            marqueeSpan.parentElement.style.animation = '';
-            idx = (idx + 1) % blocks.length;
-          }
+        let idx = 0;
 
-          // initial show + schedule
-          showNext();
-          setInterval(showNext, 15000); // change every 15s
-        })
-        .catch(err => console.error('Couldn’t load lyrics:', err));
-    </script>
+        // 3) Function to update both spans and restart animation
+        function showNext() {
+          const txt = blocks[idx];
+          lyricEls.forEach(el => el.textContent = txt);
+
+          // force-restart the CSS animation on the marquee
+          const marquee = document.querySelector('.marquee');
+          marquee.style.animation = 'none';
+          // trigger reflow
+          void marquee.offsetWidth;
+          marquee.style.animation = '';
+          
+          idx = (idx + 1) % blocks.length;
+        }
+
+        // initial show + schedule
+        showNext();
+        setInterval(showNext, 15000); // change every 15s
+      })
+      .catch(err => console.error('Couldn’t load lyrics:', err));
+  </script>
 	
 	<!-- 
     <footer>
