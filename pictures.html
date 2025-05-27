@@ -35,6 +35,20 @@
             height: 150px;
             object-fit: cover;
         }
+		.image-grid {
+	  	    display: grid;
+		  /* auto‐fit as many 150px columns as will fit */
+		    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		    gap: 16px;               /* space between items */
+		    justify-items: center;   /* center each image in its grid cell */
+		    padding: 20px 0;
+		}
+		.image-grid img {
+		    max-width: 100%;         /* make them responsive */
+	        height: auto;
+		    border-radius: 8px;      /* optional styling */
+		}
+	
         h1, h2 {
             color: #333333;
         }
