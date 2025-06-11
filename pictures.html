@@ -44,14 +44,6 @@
             margin: auto;
             background-color: #ffffff;
         }
-        .profile-pic {
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
 		.image-grid {
 	  	    display: grid;
 		  /* auto‐fit as many 150px columns as will fit */
@@ -75,41 +67,39 @@
             text-decoration: underline;
         }
 		.image-section {
-		  margin-bottom: 40px;        /* space between date‐groups */
+		    margin-bottom: 40px;        /* space between date‐groups */
 		}
    		.section-title {
-		  text-align: center;
-		  font-family: 'Montserrat', sans-serif;
-		  font-size: 1.5rem;
-		  margin-bottom: 16px;
-		  color: #333;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #333;
 		}	
 		.image-grid {
-		  display: grid;
-		  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-		  gap: 16px;
-		  justify-items: center;
-		  padding: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            justify-items: center;
+            padding: 20px 0;
 		}
 		.image-grid img {
-		  width: 100%;
-		  height: auto;
-		  object-fit: cover;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
 		}
 
 	</style>
 </head>
 <body>
-
-    <header>
-        <p>Welcome to my webpage :)</p>
-    </header>
-    
+   
 	<div class="container">
 		<section class="image-section">
 			<h2 class="section-title">April 29, 2025</h2>
 				<div class="image-grid">	
-					<img src="/assets/pictures/20250429.png" alt="A description of the photo">
+					<a href="/assets/pictures/20250429.png" target="_blank" rel="noopener">
+                        <img src="/assets/pictures/20250429.png">
+                    </a>
 				</div>	
 		</section>	
 
@@ -123,4 +113,3 @@
 
 </body>
 </html>
-

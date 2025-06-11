@@ -13,6 +13,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            padding-bottom: 50px;
             background-color: #ffffff;
         }
         header {
@@ -21,6 +22,18 @@
             padding: 20px 0;
             text-align: center;
         }
+        footer {
+            background-color: #ffffff;
+            color: #333333;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            }
         .container {
             padding: 20px;
             max-width: 800px;
@@ -41,17 +54,6 @@
         p {
             line-height: 1.6;
         }
-        footer {
-            background-color: #f5f5f5;
-            color: #333333;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            box-sizing: border-box;
-        } 
         .links a {
             display: block;
             color: #0066cc;
@@ -62,33 +64,17 @@
         .links a:hover {
             text-decoration: underline;
         }
-        .marquee-container {
-              position: relative;
-              width: 100%;
-              height: 50px;         /* adjust banner height */
-              overflow: hidden;
-              background: #222;     /* banner background */
-            }
-        .marquee {
-          display: flex;
-          /* make it at least twice as wide as the container so both copies sit side by side */
-          min-width: 200%;
-          animation: scroll 15s linear infinite;
-        }
-
         .lyric {
-          /* each one takes 50% of the marquee’s width */
-          width: 50%;
-          white-space: nowrap;
-          padding-left: 100%;       /* start each off-screen to the right */
-          box-sizing: content-box;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            font-style: italic;
+            margin: 0;
         }
+        .lyric.visible {
+            opacity: 1;
+        }
+        
 
-        /* slide left by 50% (one lyric’s width) */
-        @keyframes scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
 
    	</style>
 </head>
@@ -144,7 +130,7 @@
                     .then(data => {
                         document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
                     });
-                </script>		
+                </script>	
         </section>
 
         <section id="links" class="links">
@@ -155,51 +141,12 @@
             <a href="https://letterboxd.com/edoardomangia/" target="_blank">Letterboxd</a>
         </section>
  
+    <footer>
+        <p id="lyric" class="lyric"></p>
+    </footer>
 
- <div class="marquee-container">
-    <div class="marquee">
-      <span class="lyric"></span>
-      <span class="lyric"></span>
-    </div>
-  </div>
-
-  <script>
-    // 1) Grab both lyric spans
-    const lyricEls = document.querySelectorAll('.lyric');
-
-    // 2) Fetch the raw text file
-    fetch('assets/lyrics.txt')
-      .then(r => r.text())
-      .then(text => {
-        const blocks = text
-          .trim()
-          .split(/\n\s*\n/)
-          .map(b => b.replace(/\n/g, ' ')); // join multi-line into one line
-
-        let idx = 0;
-
-        // 3) Function to update both spans and restart animation
-        function showNext() {
-          const txt = blocks[idx];
-          lyricEls.forEach(el => el.textContent = txt);
-
-          // force-restart the CSS animation on the marquee
-          const marquee = document.querySelector('.marquee');
-          marquee.style.animation = 'none';
-          // trigger reflow
-          void marquee.offsetWidth;
-          marquee.style.animation = '';
-          
-          idx = (idx + 1) % blocks.length;
-        }
-
-        // initial show + schedule
-        showNext();
-        setInterval(showNext, 15000); // change every 15s
-      })
-      .catch(err => console.error('Couldn’t load lyrics:', err));
-  </script>
-	
+    <script src="scripts/lyrics.js" defer></script>
+        
 	<!-- 
     <footer>
 		:)
